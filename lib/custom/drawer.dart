@@ -25,7 +25,7 @@ Widget navigationDrawer(BuildContext) {
                 ),
               ),
               new ListTile(
-                leading: Icon(Icons.home),
+                leading: Icon(Icons.home_filled),
                 title: Text(
                   "Home",
                   style: TextStyle(color: Warna.disable),
