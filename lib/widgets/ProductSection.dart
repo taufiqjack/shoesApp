@@ -11,11 +11,22 @@ Widget buildProduct() {
     ),
     child: Row(
       children: [
-        Text("Our Product "),
+        Text(
+          "Our Product",
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         Expanded(
           child: Container(),
         ),
-        Text("Sort By"),
+        Text(
+          "Sort By",
+          style: TextStyle(
+            fontSize: 10,
+          ),
+        ),
         Icon(
           Icons.keyboard_arrow_down,
           size: 15,
