@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shoesApp/custom/warna.dart';
 import 'package:shoesApp/models/sepatuModel.dart';
+import 'package:shoesApp/pages/detailspage.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class ItemList extends StatelessWidget {
@@ -19,7 +20,25 @@ class ItemList extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(top: 20, left: 20, right: 20),
           child: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DetailsPage(
+                            shoeimage: listSepatuModel.shoeImage,
+                            price: listSepatuModel.price,
+                            shoesname: listSepatuModel.shoeName,
+                            rating: listSepatuModel.rating,
+                            showpersentase: listSepatuModel.showpercentase,
+                            activeheart: listSepatuModel.activeheart,
+                            persentase: listSepatuModel.persentase,
+                            showcasebackgrund:
+                                listSepatuModel.showcasebackground,
+                            lightshowcasebackground:
+                                listSepatuModel.lightshowcasebackground,
+                          )));
+              print("ke navigasi details");
+            },
             child: Container(
               decoration: BoxDecoration(
                   color: Warna.white,
