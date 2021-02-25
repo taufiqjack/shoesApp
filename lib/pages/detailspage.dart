@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shoesApp/custom/warna.dart';
+import 'package:shoesApp/pages/home.dart';
 
 class DetailsPage extends StatefulWidget {
   final String shoesname;
@@ -42,18 +43,17 @@ class _DetailsPageState extends State<DetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffolKey = new GlobalKey<ScaffoldState>();
-
     return Scaffold(
+      backgroundColor: Warna.white,
       appBar: AppBar(
-        backgroundColor: Warna.white_two,
+        backgroundColor: Warna.white,
         elevation: 0.0,
         actions: [
           Container(
               height: 30,
               width: 30,
               decoration: BoxDecoration(
-                  color: Warna.defaultbgcolor,
+                  color: Warna.defaultredcolor,
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
@@ -75,7 +75,10 @@ class _DetailsPageState extends State<DetailsPage> {
             Icons.arrow_back_rounded,
             color: Warna.black,
           ),
-          onPressed: () => _scaffolKey.currentState.openDrawer(),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Homepage()));
+          },
         ),
         title: Center(
           child: RichText(
@@ -102,30 +105,109 @@ class _DetailsPageState extends State<DetailsPage> {
       ),
       body: Stack(
         children: [
-          Column(children: [
-            widget.showpersentase
-                ? Container(
-                    height: 30,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      color: Warna.secondrycolor,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "${widget.persentase}",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
+          Column(
+            children: [
+              widget.showpersentase
+                  ? Container(
+                      height: 30,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        color: Warna.secondrycolor,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "${widget.persentase}",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
+                    )
+                  : Container(),
+              SizedBox(
+                height: 5,
+              ),
+              buildShoesShow(context),
+              Expanded(
+                child: Container(),
+              ),
+              buildPrice(context),
+            ],
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 90,
+              decoration: BoxDecoration(
+                  color: Warna.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Warna.navbariconcolor,
+                      blurRadius: 2,
+                      offset: Offset(0, -1),
                     ),
-                  )
-                : Container(),
-            SizedBox(
-              height: 5,
-            )
-          ]),
+                  ]),
+              child: Padding(
+                padding: EdgeInsets.only(left: 30),
+                child: Row(
+                  children: [
+                    Text(
+                      "${widget.price}",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: FlatButton(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        color: Color(0xffF7F7F7),
+                        onPressed: () {},
+                        child: Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                "assets/icons/cart.svg",
+                                height: 20,
+                                color: Warna.primarycolor,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                "Add To Cart",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 16,
+                                    color: Warna.primarycolor),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
@@ -176,11 +258,16 @@ class _DetailsPageState extends State<DetailsPage> {
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height / 2.75,
                       decoration: BoxDecoration(
-                        color: Colors.transparent,
+                        color: widget.showcasebackgrund,
                         shape: BoxShape.circle,
-                        border: Border.all(
-                          color: widget.showcasebackgrund,
-                          width: 2,
+                      ),
+                      padding: EdgeInsets.all(30),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height / 1,
+                        decoration: BoxDecoration(
+                          color: widget.lightshowcasebackground,
+                          shape: BoxShape.circle,
                         ),
                       ),
                     ),
@@ -210,7 +297,7 @@ class _DetailsPageState extends State<DetailsPage> {
   buildPrice(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height / 2.3,
+      height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
         color: Warna.white,
         borderRadius: BorderRadius.only(
@@ -229,26 +316,28 @@ class _DetailsPageState extends State<DetailsPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "${widget.shoesname}",
-              style: TextStyle(
-                  fontSize: 30,
-                  color: Warna.primarycolor,
-                  fontWeight: FontWeight.bold),
-            ),
-            Row(
-              children: [
-                Icon(
-                  Icons.star_outlined,
-                  size: 30,
-                  color: Warna.yellowdark,
-                ),
-                Text(
-                  "${widget.rating}",
-                  style: TextStyle(fontSize: 18, color: Warna.grey),
-                ),
-              ],
-            ),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              Text(
+                "${widget.shoesname}",
+                style: TextStyle(
+                    fontSize: 25,
+                    color: Warna.primarycolor,
+                    fontWeight: FontWeight.bold),
+              ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.star_outlined,
+                    size: 30,
+                    color: Warna.yellowdark,
+                  ),
+                  Text(
+                    "${widget.rating}",
+                    style: TextStyle(fontSize: 16, color: Warna.grey),
+                  ),
+                ],
+              ),
+            ]),
             SizedBox(
               height: 10,
             ),
@@ -257,7 +346,7 @@ class _DetailsPageState extends State<DetailsPage> {
               style: TextStyle(fontSize: 18, color: Warna.primarycolor),
             ),
             SizedBox(
-              height: 30,
+              height: 20,
             ),
             Row(
               children: [
@@ -265,12 +354,12 @@ class _DetailsPageState extends State<DetailsPage> {
                   "Size : ",
                   style: TextStyle(
                       color: Warna.grey,
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold),
                 ),
                 Container(
                   height: 50,
-                  width: MediaQuery.of(context).size.width / 1.35,
+                  width: MediaQuery.of(context).size.width / 1.5,
                   child: Center(
                     child: ListView.builder(
                         physics: BouncingScrollPhysics(),
@@ -279,14 +368,14 @@ class _DetailsPageState extends State<DetailsPage> {
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 13, vertical: 8),
+                                horizontal: 10, vertical: 8),
                             child: FlatButton(
                               onPressed: () {
                                 setState(() {
                                   selectedIndex = index;
                                 });
                               },
-                              minWidth: 50,
+                              minWidth: 40,
                               padding: EdgeInsets.symmetric(
                                   horizontal: 5, vertical: 5),
                               shape: RoundedRectangleBorder(
@@ -299,7 +388,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                 child: Text(
                                   shoesSize[index],
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
@@ -318,7 +407,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 Text(
                   "Available Color",
                   style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 16,
                       color: Warna.grey,
                       fontWeight: FontWeight.bold),
                 ),
