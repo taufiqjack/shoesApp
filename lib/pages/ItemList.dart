@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shoesApp/custom/warna.dart';
 import 'package:shoesApp/models/sepatuModel.dart';
 import 'package:shoesApp/pages/detailspage.dart';
@@ -68,9 +69,11 @@ class ItemList extends StatelessWidget {
                                 child: Center(
                                   child: Text(
                                     "${listSepatuModel.persentase}",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16),
+                                    style: GoogleFonts.montserrat(
+                                      textStyle: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -137,10 +140,12 @@ class ItemList extends StatelessWidget {
                 ),
                 Text(
                   "${listSepatuModel.shoeName}",
-                  style: TextStyle(
-                    color: Warna.primarycolor,
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      color: Warna.primarycolor,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -148,10 +153,12 @@ class ItemList extends StatelessWidget {
                 ),
                 Text(
                   "${listSepatuModel.price}",
-                  style: TextStyle(
-                      color: Warna.primarycolor,
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold),
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                        color: Warna.primarycolor,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
                 SizedBox(
                   height: 3,

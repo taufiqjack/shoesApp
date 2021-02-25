@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shoesApp/custom/warna.dart';
 
 Widget buildProduct() {
@@ -13,9 +14,11 @@ Widget buildProduct() {
       children: [
         Text(
           "Our Product",
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
+          style: GoogleFonts.montserrat(
+            textStyle: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         Expanded(
@@ -23,8 +26,10 @@ Widget buildProduct() {
         ),
         Text(
           "Sort By",
-          style: TextStyle(
-            fontSize: 10,
+          style: GoogleFonts.montserrat(
+            textStyle: TextStyle(
+              fontSize: 10,
+            ),
           ),
         ),
         Icon(

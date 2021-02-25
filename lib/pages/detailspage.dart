@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shoesApp/custom/warna.dart';
 import 'package:shoesApp/pages/home.dart';
 
@@ -86,17 +87,21 @@ class _DetailsPageState extends State<DetailsPage> {
               children: [
                 TextSpan(
                   text: "X",
-                  style: TextStyle(
-                      color: Warna.primarycolor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                        color: Warna.primarycolor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
                 TextSpan(
                   text: "E",
-                  style: TextStyle(
-                      color: Warna.secondrycolor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                        color: Warna.secondrycolor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),
@@ -160,9 +165,11 @@ class _DetailsPageState extends State<DetailsPage> {
                   children: [
                     Text(
                       "${widget.price}",
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w900,
+                      style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w900,
+                        ),
                       ),
                     ),
                     Expanded(
@@ -193,11 +200,13 @@ class _DetailsPageState extends State<DetailsPage> {
                               ),
                               Text(
                                 "Add To Cart",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 16,
-                                    color: Warna.primarycolor),
-                              )
+                                style: GoogleFonts.montserrat(
+                                  textStyle: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 16,
+                                      color: Warna.primarycolor),
+                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -319,10 +328,12 @@ class _DetailsPageState extends State<DetailsPage> {
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               Text(
                 "${widget.shoesname}",
-                style: TextStyle(
-                    fontSize: 25,
-                    color: Warna.primarycolor,
-                    fontWeight: FontWeight.bold),
+                style: GoogleFonts.montserrat(
+                  textStyle: TextStyle(
+                      fontSize: 25,
+                      color: Warna.primarycolor,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
               Row(
                 children: [
@@ -333,7 +344,9 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                   Text(
                     "${widget.rating}",
-                    style: TextStyle(fontSize: 16, color: Warna.grey),
+                    style: GoogleFonts.montserrat(
+                      textStyle: TextStyle(fontSize: 16, color: Warna.grey),
+                    ),
                   ),
                 ],
               ),
@@ -343,7 +356,9 @@ class _DetailsPageState extends State<DetailsPage> {
             ),
             Text(
               "Compass Sepatu Kebanggaan Indonesia",
-              style: TextStyle(fontSize: 18, color: Warna.primarycolor),
+              style: GoogleFonts.montserrat(
+                textStyle: TextStyle(fontSize: 18, color: Warna.primarycolor),
+              ),
             ),
             SizedBox(
               height: 20,
@@ -352,10 +367,12 @@ class _DetailsPageState extends State<DetailsPage> {
               children: [
                 Text(
                   "Size : ",
-                  style: TextStyle(
-                      color: Warna.grey,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                        color: Warna.grey,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
                 Container(
                   height: 50,
@@ -387,9 +404,11 @@ class _DetailsPageState extends State<DetailsPage> {
                               child: Center(
                                 child: Text(
                                   shoesSize[index],
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
+                                  style: GoogleFonts.montserrat(
+                                    textStyle: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
                               ),
                             ),
@@ -406,10 +425,12 @@ class _DetailsPageState extends State<DetailsPage> {
               children: [
                 Text(
                   "Available Color",
-                  style: TextStyle(
-                      fontSize: 16,
-                      color: Warna.grey,
-                      fontWeight: FontWeight.bold),
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                        fontSize: 16,
+                        color: Warna.grey,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
                 Container(
                   height: 50,

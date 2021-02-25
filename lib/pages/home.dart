@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shoesApp/custom/drawer.dart';
 import 'package:shoesApp/custom/warna.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -92,17 +93,21 @@ class _HomepageState extends State<Homepage> {
                 children: [
                   TextSpan(
                     text: "X",
-                    style: TextStyle(
-                        color: Warna.primarycolor,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
+                    style: GoogleFonts.montserrat(
+                      textStyle: TextStyle(
+                          color: Warna.primarycolor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                   TextSpan(
                     text: "E",
-                    style: TextStyle(
-                        color: Warna.secondrycolor,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
+                    style: GoogleFonts.montserrat(
+                      textStyle: TextStyle(
+                          color: Warna.secondrycolor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ],
               ),
@@ -231,12 +236,14 @@ class _HomepageState extends State<Homepage> {
                       ),
                       Text(
                         '${kategoriModel[index].title}',
-                        style: TextStyle(
-                            color: selectedIndex == index
-                                ? Warna.primarycolor
-                                : Warna.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 12),
+                        style: GoogleFonts.montserrat(
+                          textStyle: TextStyle(
+                              color: selectedIndex == index
+                                  ? Warna.primarycolor
+                                  : Warna.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12),
+                        ),
                       ),
                     ],
                   ),
