@@ -25,6 +25,7 @@ class ListSepatuModel {
     this.showcasebackground,
     this.lightshowcasebackground,
   });
+}
 
   List<ListSepatuModel> listSepatuModel = [
     ListSepatuModel(
@@ -42,7 +43,7 @@ class ListSepatuModel {
       showcasebackground: Warna.colorblue,
       lightshowcasebackground: Warna.lightShowcasebgcolorpink,
       shoeImage: "assets/images/compassh2.png",
-      persentase: "30%",
+      persentase: "40%",
       shoeName: "Compass Gazelle Hight",
       price: "\Rp" + "525.000",
       rating: "(4.5)",
@@ -64,7 +65,7 @@ class ListSepatuModel {
       showcasebackground: Warna.yellowColor,
       lightshowcasebackground: Warna.lightShowcasebgcolorpink,
       shoeImage: "assets/images/compassh1.png",
-      persentase: "30%",
+      persentase: "40%",
       shoeName: "Compass Gazelle Hight",
       price: "\Rp" + "510.000",
       rating: "(4.5)",
@@ -72,4 +73,4 @@ class ListSepatuModel {
       activeheart: false,
     ),
   ];
-}
+
