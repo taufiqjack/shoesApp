@@ -154,7 +154,6 @@ class _HomepageState extends State<Homepage> {
           onTap: (int tapPages) {
             setState(() {
               showPage = _pageChoose(tapPages);
-              print('add_shopping_cart_sharp');
             });
           },
         ),

@@ -125,7 +125,7 @@ class _DetailsPageState extends State<DetailsPage> {
                           "${widget.persentase}",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 16,
+                            fontSize: 14,
                           ),
                         ),
                       ),
@@ -167,7 +167,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       "${widget.price}",
                       style: GoogleFonts.montserrat(
                         textStyle: TextStyle(
-                          fontSize: 30,
+                          fontSize: 25,
                           fontWeight: FontWeight.w900,
                         ),
                       ),
@@ -203,7 +203,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                 style: GoogleFonts.montserrat(
                                   textStyle: TextStyle(
                                       fontWeight: FontWeight.w700,
-                                      fontSize: 16,
+                                      fontSize: 14,
                                       color: Warna.primarycolor),
                                 ),
                               ),
@@ -330,7 +330,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 "${widget.shoesname}",
                 style: GoogleFonts.montserrat(
                   textStyle: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       color: Warna.primarycolor,
                       fontWeight: FontWeight.bold),
                 ),
@@ -345,7 +345,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   Text(
                     "${widget.rating}",
                     style: GoogleFonts.montserrat(
-                      textStyle: TextStyle(fontSize: 16, color: Warna.grey),
+                      textStyle: TextStyle(fontSize: 14, color: Warna.grey),
                     ),
                   ),
                 ],
@@ -357,7 +357,7 @@ class _DetailsPageState extends State<DetailsPage> {
             Text(
               "Compass Sepatu Kebanggaan Indonesia",
               style: GoogleFonts.montserrat(
-                textStyle: TextStyle(fontSize: 18, color: Warna.primarycolor),
+                textStyle: TextStyle(fontSize: 16, color: Warna.primarycolor),
               ),
             ),
             SizedBox(
@@ -370,7 +370,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   style: GoogleFonts.montserrat(
                     textStyle: TextStyle(
                         color: Warna.grey,
-                        fontSize: 16,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -406,7 +406,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                   shoesSize[index],
                                   style: GoogleFonts.montserrat(
                                     textStyle: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 12,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
@@ -427,7 +427,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   "Available Color",
                   style: GoogleFonts.montserrat(
                     textStyle: TextStyle(
-                        fontSize: 16,
+                        fontSize: 14,
                         color: Warna.grey,
                         fontWeight: FontWeight.bold),
                   ),

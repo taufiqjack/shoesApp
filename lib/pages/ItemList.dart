@@ -144,7 +144,6 @@ class ItemList extends StatelessWidget {
                     textStyle: TextStyle(
                       color: Warna.primarycolor,
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
