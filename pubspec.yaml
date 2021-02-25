@@ -32,6 +32,7 @@ dependencies:
   curved_navigation_bar:
   flutter_svg:
   google_fonts:
+  smooth_star_rating:
 
 dev_dependencies:
   flutter_test:
