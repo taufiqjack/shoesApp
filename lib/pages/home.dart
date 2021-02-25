@@ -22,6 +22,19 @@ class _HomepageState extends State<Homepage> {
   GlobalKey _bottomNavKey = GlobalKey();
   int selectedIndex = 0;
 
+  int pageIndex = 0;
+  final Homepage _home = Homepage();
+
+  Widget showPage = new Homepage();
+
+  _pageChoose(int page) {
+    switch (page) {
+      case 0:
+        return _home;
+        break;
+    }
+  }
+
   Future<bool> exitApp() async {
     showDialog(
       context: context,
@@ -133,7 +146,12 @@ class _HomepageState extends State<Homepage> {
           backgroundColor: Colors.transparent,
           animationCurve: Curves.easeInOut,
           animationDuration: Duration(milliseconds: 600),
-          //onTap: (){},
+          onTap: (int tapPages) {
+            setState(() {
+              showPage = _pageChoose(tapPages);
+              print('add_shopping_cart_sharp');
+            });
+          },
         ),
         drawer: navigationDrawer(context),
         body: WillPopScope(

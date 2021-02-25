@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shoesApp/custom/warna.dart';
 import 'package:shoesApp/models/sepatuModel.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class ItemList extends StatelessWidget {
   final ListSepatuModel listSepatuModel;
@@ -11,6 +12,8 @@ class ItemList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double rating = double.parse('${listSepatuModel.rating}');
+
     return Column(
       children: [
         Padding(
@@ -132,8 +135,25 @@ class ItemList extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 3,
                 ),
+                Center(
+                    child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SmoothStarRating(
+                        allowHalfRating: false,
+                        onRated: (v) {},
+                        starCount: 5,
+                        rating: rating,
+                        size: 15.0,
+                        isReadOnly: true,
+                        color: Warna.yellowColor,
+                        borderColor: Warna.yellowColor,
+                        spacing: 0.0),
+                    Text(" (${listSepatuModel.rating})"),
+                  ],
+                )),
               ]),
             ),
           ),
