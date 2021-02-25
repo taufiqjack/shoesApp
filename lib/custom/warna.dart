@@ -49,6 +49,7 @@ class Warna {
   static const lightShowcasebgcolorblue = Color(0xffD1EFFF);
   static const lightShowcasebgcolorgreen = Color(0xffE2F7E1);
   static const lightShowcasebgcoloryellow = Color(0xffFFF9C4);
+  static const yellowdark = Color(0xffFDD446);
 
   static const Color starratingcolor = Color(0xffFDD446);
   static const List<Color> kshoecolorOptions = [
