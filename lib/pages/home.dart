@@ -5,6 +5,10 @@ import 'package:flutter/widgets.dart';
 import 'package:shoesApp/custom/drawer.dart';
 import 'package:shoesApp/custom/warna.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shoesApp/models/kategoriModel.dart';
+import 'package:shoesApp/models/sepatuModel.dart';
+import 'package:shoesApp/pages/ItemList.dart';
+import 'package:shoesApp/widgets/ProductSection.dart';
 
 class Homepage extends StatefulWidget {
   Homepage({Key key}) : super(key: key);
@@ -16,6 +20,7 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   final GlobalKey<ScaffoldState> _scaffolKey = new GlobalKey<ScaffoldState>();
   GlobalKey _bottomNavKey = GlobalKey();
+  int selectedIndex = 0;
 
   Future<bool> exitApp() async {
     showDialog(
@@ -47,7 +52,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Warna.white_three,
+        backgroundColor: Warna.white_two,
         key: _scaffolKey,
         appBar: AppBar(
           backgroundColor: Warna.white_two,
@@ -61,11 +66,34 @@ class _HomepageState extends State<Homepage> {
                 onPressed: () {})
           ],
           leading: IconButton(
-            icon: Icon(
-              Icons.menu,
-              color: Colors.black,
+            icon: SvgPicture.asset(
+              "assets/icons/menu.svg",
+              height: 15,
+              color: Warna.black,
             ),
             onPressed: () => _scaffolKey.currentState.openDrawer(),
+          ),
+          title: Center(
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: "X",
+                    style: TextStyle(
+                        color: Warna.primarycolor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(
+                    text: "E",
+                    style: TextStyle(
+                        color: Warna.secondrycolor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
         //bottomNavigationBar: curved(),
@@ -109,21 +137,95 @@ class _HomepageState extends State<Homepage> {
         ),
         drawer: navigationDrawer(context),
         body: WillPopScope(
-            child: SingleChildScrollView(
-              physics: AlwaysScrollableScrollPhysics(),
-              padding: EdgeInsets.symmetric(
-                  horizontal: 40 / 1.2, vertical: 20 / 1.5),
-              child: Column(children: [
-                Container(
-                  alignment: Alignment.topLeft,
-                  child: (Text('Our Product')),
-                ),
-                Container(
-                  alignment: Alignment.topRight,
-                  child: Text('Sort By'),
+            child: Stack(
+              children: [
+                Column(
+                  children: [
+                    buildProduct(),
+                    // buildProduct(),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    buildCategories(context),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: GridView.builder(
+                          itemCount: listSepatuModel.length,
+                          gridDelegate:
+                              new SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2, childAspectRatio: 0.75),
+                          itemBuilder: (context, index) => ItemList(
+                            listSepatuModel: listSepatuModel[index],
+                            index: index,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 )
-              ]),
+              ],
             ),
             onWillPop: exitApp));
+  }
+
+  buildCategories(BuildContext context) {
+    return Container(
+        height: 35,
+        width: MediaQuery.of(context).size.width,
+        child: ListView.builder(
+          itemCount: kategoriModel.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  width: 90,
+                  decoration: BoxDecoration(
+                      color: Warna.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        selectedIndex == index
+                            ? BoxShadow(
+                                color: Warna.navbariconcolor,
+                                blurRadius: 10,
+                                offset: Offset(0, -1))
+                            : BoxShadow()
+                      ]),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        '${kategoriModel[index].images}',
+                        height: 20,
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        '${kategoriModel[index].title}',
+                        style: TextStyle(
+                            color: selectedIndex == index
+                                ? Warna.primarycolor
+                                : Warna.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
+        ));
   }
 }
